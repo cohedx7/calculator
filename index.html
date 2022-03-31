@@ -2,36 +2,32 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calculator</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div id="display">
-            <input type="number" value="12345">
-        </div>
-        <div id="first-buttons">
-            <button id="one">1</button>
-            <button id="two">2</button>
-            <button id="three">3</button>
-            <button id="plus">+</button>
-        </div>
-        <div id="second-buttons">
-            <button id="four">4</button>
-            <button id="five">5</button>
-            <button id="six">6</button>
-            <button id="minus">-</button>
-        </div>
-        <div id="third-buttons">
-            <button id="seven">7</button>
-            <button id="eight">8</button>
-            <button id="nine">9</button>
-            <button id="times">*</button>
-        </div>
-        <div id="fourth-buttons">
-            <button id="zero">0</button>
-            <button id="clear">C</button>
-            <button id="equals">=</button>
-            <button id="divided">/</button>
+        <div class="container">
+            <div id="display"></div>
+            <div class="buttons">
+                    <button id="one" value="1">1</button>
+                    <button id="two" value="2">2</button>
+                    <button id="three" value="3">3</button>
+                    <button id="plus" value="+">+</button>
+                    <button id="four" value="4">4</button>
+                    <button id="five" value="5">5</button>
+                    <button id="six" value="6">6</button>
+                    <button id="minus" value="-">-</button>
+                    <button id="seven" value="7">7</button>
+                    <button id="eight" value="8">8</button>
+                    <button id="nine" value="9">9</button>
+                    <button id="times" value="*">*</button>
+                    <button id="zero" value="0">0</button>
+                    <button id="clear">C</button>
+                    <button id="equals" value="=">=</button>
+                    <button id="divided" value="/">/</button>
+                </div>
+            </div>
         </div>
     </body>
     <script src="app.js"></script>

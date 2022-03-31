@@ -1,8 +1,5 @@
-const addition = document.getElementById();
-const subtraction = document.getElementById();
-const multiplication = document.getElementById();
-const division = document.getElementById();
-// addEventListener ('click')..??
+let display = document.getElementById('display');
+let possibleValues = Array.from(document.querySelectorAll('button'));
 
 function add(a, b) {
     return a + b;
@@ -36,3 +33,22 @@ function operate (n1, n2, operator) {
             break;
     }
 }
+
+possibleValues.map(button => {
+    button.addEventListener('click', (e) => {
+        switch(e.target.innerText) {
+            case 'C':
+                display.innerText = '';
+                break;
+            case '=':
+                try {
+                    display.innerText = operate(); //how to make this work??
+                } catch {
+                    display.innerText = 'Error';
+                }
+                break; 
+            default:
+                display.innerText += e.target.innerText;
+        }
+    })
+})
