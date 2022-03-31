@@ -1,5 +1,8 @@
 let display = document.getElementById('display');
 let possibleValues = Array.from(document.querySelectorAll('button'));
+let firstNum;
+let secondNum;
+let operSign;
 
 function add(a, b) {
     return a + b;
@@ -19,16 +22,16 @@ function divide(a, b) {
 
 function operate (n1, n2, operator) {
     switch (operator) {
-        case addition:
+        case '+':
             add(n1, n2);
             break;
-        case subtraction:
+        case '-':
             subtract(n1, n2);
             break;
-        case multiplication:
+        case '*':
             multiply(n1, n2);
             break;
-        case division:
+        case '/':
             divide(n1, n2);
             break;
     }
@@ -40,13 +43,34 @@ possibleValues.map(button => {
             case 'C':
                 display.innerText = '';
                 break;
+            case '+':
+                firstNum = display.innerText;
+                operSign = '+';
+                display.innerText = '+';
+                break;
+            case '-':
+                firstNum = display.innerText;
+                operSign = '-';
+                display.innerText = '-';
+                break;
+            case '*':
+                firstNum = display.innerText;
+                operSign = '*';
+                display.innerText = '*';
+                break;
+            case '/':
+                firstNum = display.innerText;
+                operSign = '/';
+                display.innerText = '/';
+                break;
             case '=':
                 try {
-                    display.innerText = operate(); //how to make this work??
+                    secondNum = display.innerText;
+                    display.innerText = operate(firstNum, secondNum, operSign);
                 } catch {
                     display.innerText = 'Error';
                 }
-                break; 
+                break;
             default:
                 display.innerText += e.target.innerText;
         }

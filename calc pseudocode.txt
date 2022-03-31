@@ -1,0 +1,17 @@
+Calculator Project:
+
+Step 5:
+
+save firstValue to be used in later operation after clicking an 
+operator sign (except equal)...
+
+depending operator sign clicked, assign operator value accordingly 
+(+, -, *, /).
+
+after operator sign is clicked, display should change...
+
+when equal sign gets clicked after second value is inputted, 
+secondValue is saved, and operate function is run with the 3 values 
+inputted accordingly.
+
+output-result is displayed accordingly...
