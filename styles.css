@@ -38,3 +38,23 @@ button {
 #equals {
     background-color: gold;
 }
+
+#clear {
+    background-color: turquoise
+}
+
+#plus {
+    background-color: red
+}
+
+#minus {
+    background-color: lightgreen
+}
+
+#times {
+    background-color: yellow
+}
+
+#divided {
+    background-color: #00AAEE
+}
