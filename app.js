@@ -1,4 +1,6 @@
 let display = document.getElementById('display');
+let previous = document.getElementById('previous');
+let current = document.getElementById('current');
 let possibleValues = Array.from(document.querySelectorAll('button'));
 let firstNum;
 let secondNum;
@@ -36,38 +38,44 @@ possibleValues.map(button => {
     button.addEventListener('click', (e) => {
         switch(e.target.innerText) {
             case 'C':
-                display.innerText = '';
+                previous.innerText = '';
+                current.innerText = '';
                 break;
             case '+':
-                firstNum = parseInt(display.innerText);
+                firstNum = parseInt(current.innerText);
                 operSign = '+';
-                display.innerText = '';
+                previous.innerText = firstNum + ' ' + operSign;
+                current.innerText = '';
                 break;
             case '-':
-                firstNum = parseInt(display.innerText);
+                firstNum = parseInt(current.innerText);
                 operSign = '-';
-                display.innerText = '';
+                previous.innerText = firstNum + ' ' + operSign;
+                current.innerText = '';
                 break;
             case '*':
-                firstNum = parseInt(display.innerText);
+                firstNum = parseInt(current.innerText);
                 operSign = '*';
-                display.innerText = '';
+                previous.innerText = firstNum + ' ' + operSign;
+                current.innerText = '';
                 break;
             case '/':
-                firstNum = parseInt(display.innerText);
+                firstNum = parseInt(current.innerText);
                 operSign = '/';
-                display.innerText = '';
+                previous.innerText = firstNum + ' ' + operSign;
+                current.innerText = '';
                 break;
             case '=':
                 try {
-                    secondNum = parseInt(display.innerText);
-                    display.innerText = operate(firstNum, secondNum, operSign);
+                    secondNum = parseInt(current.innerText);
+                    previous.innerText = `${firstNum} ${operSign} ${secondNum} =`;
+                    current.innerText = operate(firstNum, secondNum, operSign);
                 } catch {
-                    display.innerText = 'Error';
+                    current.innerText = 'Error';
                 }
                 break;
             default:
-                display.innerText += e.target.innerText;
+                current.innerText += e.target.innerText;
         }
     })
 })

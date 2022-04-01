@@ -21,3 +21,11 @@ I've written some pseudocode for the logic of step 5, but the code isn't working
 
 Well, I've gotten the calculator to work partially... the only thing is that it displays a blank whenever I click one of the operation symbols... not sure yet how to make it so that the firstNum gets wiped and only secondNum digits show up after hitting the operator symbol...
 Also, need to improve functionality as there are some bugs (as stated in Step 6)...
+
+---
+
+01/04/2022:
+
+Well, I sort of got it to work by splitting the display to output 2 lines - a previous output (with the previous numbers and operation + equal symbol), along with a current output (with the current input or result of operation).
+
+For now, it's somewhat satisfactory, although it might need some working on for improved functionality...

@@ -6,9 +6,18 @@
 
 #display {
     text-align: right;
-    height: 50px;
-    line-height: 50px;
+    height: 90px;
+    line-height: 45px;
     padding: 16px 8px;
+    word-wrap: break-word;
+}
+
+#previous {
+    font-size: 24px;
+    font-style: italic;
+}
+
+#current {
     font-size: 24px;
 }
 
@@ -19,7 +28,7 @@
 }
 
 button {
-    border: 0.5px solid black;
+    border: 1px solid black;
     line-height: 75px;
     text-align: center;
     font-size: 24px;
