@@ -15,3 +15,25 @@ secondValue is saved, and operate function is run with the 3 values
 inputted accordingly.
 
 output-result is displayed accordingly...
+
+---
+
+how to go from clicking an operator symbol and not showing blank screen to inputting secondNum?
+
+if (firstNum has not been assigned)
+	run usual code...
+else if (firstNum has been assigned)
+	clear display + immediately input new numbers into...
+	once equal sign is hit, run operate function
+
+---
+
+Step 6:
+
+try using if-else statements for each operation case... for example:
+case '+':
+	if previous statement is not empty or contains equal sign
+		then run operate function (and other stuff like equal operator)
+	else run previously written code...
+
+this should ensure that operations with numbers inserted previously work as designed...
