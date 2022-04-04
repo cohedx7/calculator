@@ -27,63 +27,63 @@ possibleValues.map(button => {
                 current.innerText = '';
                 break;
             case '+':
-                if (previous.innerText !== '') {
+                if (previous.innerText.includes('=') || previous.innerText === '') {
+                    firstNum = parseInt(current.innerText);
+                    operSign = '+';
+                    previous.innerText = firstNum + ' ' + operSign;
+                    current.innerText = '';
+                } else {
                     secondNum = parseInt(current.innerText);
-                    thirdNum = parseInt(operate(firstNum, secondNum, operSign))
+                    thirdNum = operate(firstNum, secondNum, operSign);
                     previous.innerText = `${thirdNum} +`;
                     current.innerText = '';
                     firstNum = thirdNum;
                     operSign = '+';
-                } else {
-                firstNum = parseInt(current.innerText);
-                operSign = '+';
-                previous.innerText = firstNum + ' ' + operSign;
-                current.innerText = '';
                 }
                 break;
             case '-':
-                if (previous.innerText !== '') {
+                if (previous.innerText.includes('=') || previous.innerText === '') {
+                    firstNum = parseInt(current.innerText);
+                    operSign = '-';
+                    previous.innerText = firstNum + ' ' + operSign;
+                    current.innerText = '';
+                } else {
                     secondNum = parseInt(current.innerText);
-                    thirdNum = parseInt(operate(firstNum, secondNum, operSign))
+                    thirdNum = operate(firstNum, secondNum, operSign);
                     previous.innerText = `${thirdNum} -`;
                     current.innerText = '';
                     firstNum = thirdNum;
                     operSign = '-';
-                } else {
-                firstNum = parseInt(current.innerText);
-                operSign = '-';
-                previous.innerText = firstNum + ' ' + operSign;
-                current.innerText = '';
                 }
                 break;
             case '*':
-                if (previous.innerText !== '' && !previous.innerText.includes('=')) {
+                if (previous.innerText.includes('=') || previous.innerText === '') {
+                    firstNum = parseInt(current.innerText);
+                    operSign = '*';
+                    previous.innerText = firstNum + ' ' + operSign;
+                    current.innerText = '';
+                } else {
                     secondNum = parseInt(current.innerText);
-                    thirdNum = parseInt(operate(firstNum, secondNum, operSign))
+                    thirdNum = operate(firstNum, secondNum, operSign);
                     previous.innerText = `${thirdNum} *`;
                     current.innerText = '';
                     firstNum = thirdNum;
                     operSign = '*';
-                } else {
-                firstNum = parseInt(current.innerText);
-                operSign = '*';
-                previous.innerText = firstNum + ' ' + operSign;
-                current.innerText = '';
                 }
                 break;
             case '/':
-                if (previous.innerText !== '') {
+                if (previous.innerText.includes('=') || previous.innerText === '') {
+                    firstNum = parseInt(current.innerText);
+                    operSign = '/';
+                    previous.innerText = firstNum + ' ' + operSign;
+                    current.innerText = '';
+                } else {
                     secondNum = parseInt(current.innerText);
-                    thirdNum = parseInt(operate(firstNum, secondNum, operSign))
+                    thirdNum = operate(firstNum, secondNum, operSign);
                     previous.innerText = `${thirdNum} /`;
                     current.innerText = '';
                     firstNum = thirdNum;
                     operSign = '/';
-                } else {
-                firstNum = parseInt(current.innerText);
-                operSign = '/';
-                previous.innerText = firstNum + ' ' + operSign;
-                current.innerText = '';
                 }
                 break;
             case '=':
@@ -91,6 +91,8 @@ possibleValues.map(button => {
                     secondNum = parseInt(current.innerText);
                     previous.innerText = `${firstNum} ${operSign} ${secondNum} =`;
                     current.innerText = operate(firstNum, secondNum, operSign);
+                    firstNum = 0;
+                    operSign = '+';
                 } catch {
                     current.innerText = 'Error';
                 }
