@@ -4,24 +4,9 @@ let current = document.getElementById('current');
 let possibleValues = Array.from(document.querySelectorAll('button'));
 let firstNum;
 let secondNum;
+let thirdNum;
 let operSign;
-/*
-function add(a, b) {
-    return a + b;
-}
 
-function subtract(a, b) {
-    return a - b;    
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    return a / b;
-}
-*/
 function operate(n1, n2, operator) {
     if (operator === '+') {
         return n1 + n2;
@@ -42,28 +27,64 @@ possibleValues.map(button => {
                 current.innerText = '';
                 break;
             case '+':
+                if (previous.innerText !== '') {
+                    secondNum = parseInt(current.innerText);
+                    thirdNum = parseInt(operate(firstNum, secondNum, operSign))
+                    previous.innerText = `${thirdNum} +`;
+                    current.innerText = '';
+                    firstNum = thirdNum;
+                    operSign = '+';
+                } else {
                 firstNum = parseInt(current.innerText);
                 operSign = '+';
                 previous.innerText = firstNum + ' ' + operSign;
                 current.innerText = '';
+                }
                 break;
             case '-':
+                if (previous.innerText !== '') {
+                    secondNum = parseInt(current.innerText);
+                    thirdNum = parseInt(operate(firstNum, secondNum, operSign))
+                    previous.innerText = `${thirdNum} -`;
+                    current.innerText = '';
+                    firstNum = thirdNum;
+                    operSign = '-';
+                } else {
                 firstNum = parseInt(current.innerText);
                 operSign = '-';
                 previous.innerText = firstNum + ' ' + operSign;
                 current.innerText = '';
+                }
                 break;
             case '*':
+                if (previous.innerText !== '' && !previous.innerText.includes('=')) {
+                    secondNum = parseInt(current.innerText);
+                    thirdNum = parseInt(operate(firstNum, secondNum, operSign))
+                    previous.innerText = `${thirdNum} *`;
+                    current.innerText = '';
+                    firstNum = thirdNum;
+                    operSign = '*';
+                } else {
                 firstNum = parseInt(current.innerText);
                 operSign = '*';
                 previous.innerText = firstNum + ' ' + operSign;
                 current.innerText = '';
+                }
                 break;
             case '/':
+                if (previous.innerText !== '') {
+                    secondNum = parseInt(current.innerText);
+                    thirdNum = parseInt(operate(firstNum, secondNum, operSign))
+                    previous.innerText = `${thirdNum} /`;
+                    current.innerText = '';
+                    firstNum = thirdNum;
+                    operSign = '/';
+                } else {
                 firstNum = parseInt(current.innerText);
                 operSign = '/';
                 previous.innerText = firstNum + ' ' + operSign;
                 current.innerText = '';
+                }
                 break;
             case '=':
                 try {
