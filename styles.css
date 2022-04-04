@@ -1,3 +1,7 @@
+body {
+    background: linear-gradient(to right, #0010ee, #880000)
+}
+
 .container {
     max-width: 350px;
     margin: 10vh auto 0 auto;
@@ -10,6 +14,8 @@
     line-height: 45px;
     padding: 16px 8px;
     word-wrap: break-word;
+    border: 0.5px solid black;
+    background: white;
 }
 
 #previous {
@@ -23,12 +29,12 @@
 
 .buttons {
     display: grid;
-    border: 1px solid black;
+    border: 0.5px solid black;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 button {
-    border: 1px solid black;
+    border: 0.5px solid black;
     line-height: 75px;
     text-align: center;
     font-size: 24px;
