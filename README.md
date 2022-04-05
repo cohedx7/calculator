@@ -37,3 +37,9 @@ For now, it's somewhat satisfactory, although it might need some working on for 
 I got most of step 6 done today, now the calculator works properly when using operator symbols (even one after the other). It displays "NaN" when two operator symbols are clicked in succession... then, when the '=' symbol is hit repeatedly, it displays "0 + " the currently inputted value... ideally, it would just display the current value and that's it, haven't figured this out yet... steps 6c/d/f might need some work...
 
 Updated borders and background colors as well.
+
+---
+
+05/04/2022:
+
+Finished step 6, I feel like the calculator works as intended for all the functions and buttons. I re-wrote the code as well so it looks better/more clean. There are some extra-credit assignments that I could do (mainly steps 7, 9 and 10), but I guess this is good for now.

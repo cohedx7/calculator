@@ -27,78 +27,137 @@ possibleValues.map(button => {
                 current.innerText = '';
                 break;
             case '+':
-                if (previous.innerText.includes('=') || previous.innerText === '') {
-                    firstNum = parseInt(current.innerText);
-                    operSign = '+';
-                    previous.innerText = firstNum + ' ' + operSign;
-                    current.innerText = '';
-                } else {
-                    secondNum = parseInt(current.innerText);
-                    thirdNum = operate(firstNum, secondNum, operSign);
-                    previous.innerText = `${thirdNum} +`;
-                    current.innerText = '';
-                    firstNum = thirdNum;
-                    operSign = '+';
-                }
+                additionClick();
                 break;
             case '-':
-                if (previous.innerText.includes('=') || previous.innerText === '') {
-                    firstNum = parseInt(current.innerText);
-                    operSign = '-';
-                    previous.innerText = firstNum + ' ' + operSign;
-                    current.innerText = '';
-                } else {
-                    secondNum = parseInt(current.innerText);
-                    thirdNum = operate(firstNum, secondNum, operSign);
-                    previous.innerText = `${thirdNum} -`;
-                    current.innerText = '';
-                    firstNum = thirdNum;
-                    operSign = '-';
-                }
+                subtractionClick();
                 break;
             case '*':
-                if (previous.innerText.includes('=') || previous.innerText === '') {
-                    firstNum = parseInt(current.innerText);
-                    operSign = '*';
-                    previous.innerText = firstNum + ' ' + operSign;
-                    current.innerText = '';
-                } else {
-                    secondNum = parseInt(current.innerText);
-                    thirdNum = operate(firstNum, secondNum, operSign);
-                    previous.innerText = `${thirdNum} *`;
-                    current.innerText = '';
-                    firstNum = thirdNum;
-                    operSign = '*';
-                }
+                multiplicationClick();
                 break;
             case '/':
-                if (previous.innerText.includes('=') || previous.innerText === '') {
-                    firstNum = parseInt(current.innerText);
-                    operSign = '/';
-                    previous.innerText = firstNum + ' ' + operSign;
-                    current.innerText = '';
-                } else {
-                    secondNum = parseInt(current.innerText);
-                    thirdNum = operate(firstNum, secondNum, operSign);
-                    previous.innerText = `${thirdNum} /`;
-                    current.innerText = '';
-                    firstNum = thirdNum;
-                    operSign = '/';
-                }
+                divisionClick();
                 break;
             case '=':
-                try {
-                    secondNum = parseInt(current.innerText);
-                    previous.innerText = `${firstNum} ${operSign} ${secondNum} =`;
-                    current.innerText = operate(firstNum, secondNum, operSign);
-                    firstNum = 0;
-                    operSign = '+';
-                } catch {
-                    current.innerText = 'Error';
-                }
+                equalClick();
                 break;
             default:
                 current.innerText += e.target.innerText;
         }
     })
 })
+
+function additionClick() {
+    if (previous.innerText.includes('/') && current.innerText === '0') {
+        alert('You cannot divide by 0!');
+    } else if (previous.innerText === '' && current.innerText === '') {
+        previous.innerText = '';
+        current.innerText = '';
+    } else if (current.innerText === '') {
+        previous.innerText = firstNum + ' ' + operSign;
+        current.innerText = '';
+    } else if (previous.innerText.includes('=') || previous.innerText === '') {
+        firstNum = Number(current.innerText);
+        operSign = '+';
+        previous.innerText = firstNum + ' ' + operSign;
+        current.innerText = '';
+    } else {
+        secondNum = parseInt(current.innerText);
+        thirdNum = Math.round(100*operate(firstNum, secondNum, operSign))/100;
+        previous.innerText = `${thirdNum} +`;
+        current.innerText = '';
+        firstNum = thirdNum;
+        operSign = '+';
+    }
+}
+
+function subtractionClick() {
+    if (previous.innerText.includes('/') && current.innerText === '0') {
+        alert('You cannot divide by 0!');
+    } else if (previous.innerText === '' && current.innerText === '') {
+        previous.innerText = '';
+        current.innerText = '';
+    } else if (current.innerText === '') {
+        previous.innerText = firstNum + ' ' + operSign;
+        current.innerText = '';
+    } else if (previous.innerText.includes('=') || previous.innerText === '') {
+        firstNum = Number(current.innerText);
+        operSign = '-';
+        previous.innerText = firstNum + ' ' + operSign;
+        current.innerText = '';
+    } else {
+        secondNum = parseInt(current.innerText);
+        thirdNum = Math.round(100*operate(firstNum, secondNum, operSign))/100;
+        previous.innerText = `${thirdNum} -`;
+        current.innerText = '';
+        firstNum = thirdNum;
+        operSign = '-';
+    }
+}
+
+function multiplicationClick() {
+    if (previous.innerText.includes('/') && current.innerText === '0') {
+        alert('You cannot divide by 0!');
+    } else if (previous.innerText === '' && current.innerText === '') {
+        previous.innerText = '';
+        current.innerText = '';
+    } else if (current.innerText === '') {
+        previous.innerText = firstNum + ' ' + operSign;
+        current.innerText = '';
+    } else if (previous.innerText.includes('=') || previous.innerText === '') {
+        firstNum = Number(current.innerText);
+        operSign = '*';
+        previous.innerText = firstNum + ' ' + operSign;
+        current.innerText = '';
+    } else {
+        secondNum = parseInt(current.innerText);
+        thirdNum = Math.round(100*operate(firstNum, secondNum, operSign))/100;
+        previous.innerText = `${thirdNum} *`;
+        current.innerText = '';
+        firstNum = thirdNum;
+        operSign = '*';
+    }
+}
+
+function divisionClick() {
+    if (previous.innerText.includes('/') && current.innerText === '0') {
+        alert('You cannot divide by 0!');
+    } else if (previous.innerText === '' && current.innerText === '') {
+        previous.innerText = '';
+        current.innerText = '';
+    } else if (current.innerText === '') {
+        previous.innerText = firstNum + ' ' + operSign;
+        current.innerText = '';
+    } else if (previous.innerText.includes('=') || previous.innerText === '') {
+        firstNum = Number(current.innerText);
+        operSign = '/';
+        previous.innerText = firstNum + ' ' + operSign;
+        current.innerText = '';
+    } else {
+        secondNum = parseInt(current.innerText);
+        thirdNum = Math.round(100*operate(firstNum, secondNum, operSign))/100;
+        previous.innerText = `${thirdNum} /`;
+        current.innerText = '';
+        firstNum = thirdNum;
+        operSign = '/';
+    }
+}
+
+function equalClick() {
+    try {
+        if (previous.innerText.includes('/') && current.innerText === '0') {
+            alert('You cannot divide by 0!');
+        } else if (current.innerText === '') {
+            previous.innerText = firstNum + ' ' + operSign;
+            current.innerText = '';
+        } else {
+        secondNum = parseInt(current.innerText);
+        previous.innerText = `${firstNum} ${operSign} ${secondNum} =`;
+        current.innerText = Math.round(100*operate(firstNum, secondNum, operSign))/100;
+        firstNum = 0;
+        operSign = '+';
+        }
+    } catch {
+        current.innerText = 'Error';
+    }
+}
